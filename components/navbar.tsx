@@ -1,6 +1,3 @@
-import { UserButton, auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
-
 import Link from "next/link";
 
 import MainNav from "@/components/main-nav";
@@ -9,12 +6,6 @@ import NavbarActions from "@/components/navbar-actions";
 import getCategories from "@/actions/get-categories";
 
 const Navbar = async () => {
-  const { userId } = auth();
-
-  if (!userId) {
-    // redirect('/sign-in');
-    return;
-  }
 
   const categories = await getCategories();
 
@@ -30,7 +21,6 @@ const Navbar = async () => {
           </div>
           <div className="flex items-center space-x-4">
             <NavbarActions />
-            <UserButton afterSignOutUrl="/" />
           </div>
         </div>
       </Container>
