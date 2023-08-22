@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import Image from "next/image";
 
 interface BillboardProps {
   data: Billboard[];
@@ -33,7 +34,7 @@ const Billboard: React.FC<BillboardProps> = ({ data }) => {
     >
       {data.map((billboards) => (
         <SwiperSlide className="rounded-xl relative aspect-square md:aspect-[2.4/1] overflow-hidden object-fill bg-cover">
-          <img
+          <Image
             key={billboards.id}
             src={billboards.imageUrl}
             alt={billboards.label}
